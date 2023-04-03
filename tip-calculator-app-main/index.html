@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Tip calculator app</title>
+
+</head>
+
+<body>
+  <div class="general">
+    <div class="title">
+      <div class="t-one">S P L I</div><div class="t-two">T T E R</div>
+    </div>
+    <div class="general-content">
+      <div class="left">
+        <div class="left-one">
+          <p>Bill</p>
+          <input type="number" id="bill" placeholder="0">
+          <img src="images/icon-dollar.svg">
+        </div>
+
+        <div class="left-two">
+          <p>Select Tip %</p>
+          <input type="button" value="5%" id="five">
+          <input type="button" value="10%" id="ten">
+          <input type="button" value="15%" id="fifteen">
+          <input type="button" value="25%" id="tweentyfive">
+          <input type="button" value="50%" id="fifty">
+          <input type="button" value="Custom" id="custom">
+        </div>
+
+        <div class="left-three">
+          <p>Number of People</p>
+          <input type="number" id="num-people" min="1" placeholder="0">
+          <img src="images/icon-person.svg">
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="right-top">
+          <div class="right-one">
+            <div class="right-one-left">
+              <p>Tip Amount<br><span>/ person</span></p>
+            </div>
+            <div class="right-one-right" min="1" id="tip">$0.00</div>
+          </div>
+
+          <div class="right-two">
+            <div class="right-two-left">
+              <p>Total<br><span>/ person</span></p>
+            </div>
+            <div class="right-two-right" id="total">$0.00</div>
+          </div>
+        </div>
+
+        <div class="right-bottom">
+          <div class="right-three">
+            <input type="button" value="RESET" id="reset">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
