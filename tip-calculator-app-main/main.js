@@ -1,71 +1,47 @@
-let bill = document.querySelector('#bill').value;
-let num_people = document.querySelector('#num-people').value;
-const five = document.getElementById('five');
-const ten = document.getElementById('ten');
-const fifteen = document.getElementById('fifteen');
-const tweentyfive = document.getElementById('tweentyfive');
-const fifty = document.getElementById('fifty');
-const custom = document.getElementById('custon');
+// Función para calcular la propina y el total
+function calculateTipAndTotal(tipPercentage) {
+    let bill = parseFloat(document.querySelector('#bill').value);
+    let num_people = parseInt(document.querySelector('#num-people').value);
+    
+    if (isNaN(bill) || isNaN(num_people) || num_people <= 0) {
+        tip.innerHTML = '$0.00';
+        total.innerHTML = '$0.00';
+        return;
+    }
 
-const tip = document.getElementById('tip');
-const total = document.getElementById('total');
+    let total_tip = bill * (tipPercentage / 100);
+    let tippp = total_tip / num_people;
+    let totalpp = (total_tip + bill) / num_people;
+    
+    tip.innerHTML = '$' + tippp.toFixed(2);
+    total.innerHTML = '$' + totalpp.toFixed(2);
+}
 
-const reset = document.getElementById('reset');
-
-five.addEventListener('click', ()=>{
-    let bill = document.querySelector('#bill').value;
-    let num_people = document.querySelector('#num-people').value;
-    let total_tip = Number(bill) * 0.05;
-    let tippp = Number(total_tip) / Number(num_people);
-    let totalpp = (Number(total_tip) + Number(bill)) / Number(num_people);
-    tip.innerHTML = '$'+tippp.toFixed(2);
-    total.innerHTML = '$'+totalpp.toFixed(2);
+// Event listeners para los botones de propina
+five.addEventListener('click', () => {
+    calculateTipAndTotal(5);
 });
 
-ten.addEventListener('click', ()=>{
-    let bill = document.querySelector('#bill').value;
-    let num_people = document.querySelector('#num-people').value;
-    let total_tip = Number(bill) * 0.1;
-    let tippp = Number(total_tip) / Number(num_people);
-    let totalpp = (Number(total_tip) + Number(bill)) / Number(num_people);
-    tip.innerHTML = '$'+tippp.toFixed(2);
-    total.innerHTML = '$'+totalpp.toFixed(2);
+ten.addEventListener('click', () => {
+    calculateTipAndTotal(10);
 });
 
-fifteen.addEventListener('click', ()=>{
-    let bill = document.querySelector('#bill').value;
-    let num_people = document.querySelector('#num-people').value;
-    let total_tip = Number(bill) * 0.15;
-    let tippp = Number(total_tip) / Number(num_people);
-    let totalpp = (Number(total_tip) + Number(bill)) / Number(num_people);
-    tip.innerHTML = '$'+tippp.toFixed(2);
-    total.innerHTML = '$'+totalpp.toFixed(2);
+fifteen.addEventListener('click', () => {
+    calculateTipAndTotal(15);
 });
 
-tweentyfive.addEventListener('click', ()=>{
-    let bill = document.querySelector('#bill').value;
-    let num_people = document.querySelector('#num-people').value;
-    let total_tip = Number(bill) * 0.25;
-    let tippp = Number(total_tip) / Number(num_people);
-    let totalpp = (Number(total_tip) + Number(bill)) / Number(num_people);
-    tip.innerHTML = '$'+tippp.toFixed(2);
-    total.innerHTML = '$'+totalpp.toFixed(2);
-})
+tweentyfive.addEventListener('click', () => {
+    calculateTipAndTotal(25);
+});
 
-fifty.addEventListener('click', ()=>{
-    let bill = document.querySelector('#bill').value;
-    let num_people = document.querySelector('#num-people').value;
-    let total_tip = Number(bill) * 0.5;
-    let tippp = Number(total_tip) / Number(num_people);
-    let totalpp = (Number(total_tip) + Number(bill)) / Number(num_people);
-    tip.innerHTML = '$'+tippp.toFixed(2);
-    total.innerHTML = '$'+totalpp.toFixed(2);
-})
+fifty.addEventListener('click', () => {
+    calculateTipAndTotal(50);
+});
 
-reset.addEventListener('click',()=>{
+// Event listener para el botón de reset
+reset.addEventListener('click', () => {
     document.querySelector('#bill').value = '';
     document.querySelector('#num-people').value = '';
     tip.innerHTML = '$0.00';
     total.innerHTML = '$0.00';
-})
-
+});
